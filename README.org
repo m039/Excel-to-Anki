@@ -1,0 +1,22 @@
+ExcelToAnki converter is a simple application to convert .xsl files to
+.csv format. The CSV format is recognized by the Anki programm.
+
+The .xsl file have to be properly constructed.
+
+In one of the sheets at (0,0) cell there is should be the phrase
+"Word". The sheet should looks like this:
+
+|   | A    | B      |
+|---+------+--------|
+| 1 | Word |        |
+| 2 | Key1 | Value1 |
+| 3 | Key2 | Value2 |
+| . | ...  | ...    |
+| N | KeyN | ValueN |
+
+This is my first Java application and it's just on the alpha
+stage. It's almost prototype.
+
+* License
+  ExcelToAnki converter is licensed under the terms of the Apache 2.0
+  license as listed in the LICENSE.TXT file.
