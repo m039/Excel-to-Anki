@@ -1,0 +1,106 @@
+<project name="ExcelToAnkiConverter" basedir="." default="main">
+
+  <property name="p.src" value="src"/>
+  <property name="p.build" value="build"/>
+  <property name="p.classes" value="${p.build}/classes"/>
+  <property name="p.jar" value="${p.build}/jar"/>
+  <property name="p.lib" value="lib"/>
+  <property name="p.doc" value="docs/api"/>
+
+  <property name="p.main-class" value="mozg.Main"/>
+
+  <path id="path.classpath">
+    <fileset dir="${p.lib}" includes="**/*.jar"/>
+  </path>
+
+  <path id="path.application">
+    <pathelement location="${p.jar}/${ant.project.name}.jar"/>
+  </path>
+
+  <target name="clean">
+    <delete dir="${p.build}"/>
+  </target>
+
+  <target name="compile">
+    <mkdir dir="${p.classes}"/>
+    <mkdir dir="${p.lib}"/>
+    <javac srcdir="src"
+	   destdir="${p.classes}"
+	   debug="yes"
+	   includeantruntime="false"
+	   classpathref="path.classpath"/>
+  </target>
+
+  <target name="jar" depends="compile">
+    <mkdir dir="${p.jar}"/>
+    <jar destfile="${p.jar}/${ant.project.name}.jar" basedir="${p.classes}">
+      <manifest>
+	<attribute name="Main-Class" value="${p.main-class}"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="run" depends="jar">
+    <java classname="${p.main-class}" fork="true">
+      <classpath>
+	<path refid="path.classpath"/>
+	<path refid="path.application"/>
+      </classpath>
+    </java>
+  </target>
+
+  <target name="debug" depends="jar">
+    <java classname="${p.main-class}" fork="true">
+      <jvmarg value="-Xdebug" />
+      <jvmarg value="-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=6001" />
+      <classpath>
+	<path refid="path.classpath"/>
+	<path refid="path.application"/>
+      </classpath>
+    </java>
+  </target>
+
+  <target name="release_win32" depends="compile">
+    <mkdir dir="${p.jar}"/>
+    <jar destfile="${p.jar}/${ant.project.name}_win32.jar" basedir="${p.classes}">
+      <zipfileset src="lib_release/swt_win32_x86.jar" includes="**/*.*"/>
+      <zipfileset src="${p.lib}/jxl.jar" includes="**/*.java **/*.class"/>
+      <zipfileset src="${p.lib}/opencsv-2.2.jar" includes="**/*.java **/*.class"/>
+      <manifest>
+	<attribute name="Main-Class" value="${p.main-class}"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="release_linux" depends="compile">
+    <mkdir dir="${p.jar}"/>
+    <jar destfile="${p.jar}/${ant.project.name}_linux.jar" basedir="${p.classes}">
+      <zipfileset src="lib_release/swt_linux_gtk_x86.jar" includes="**/*.*"/>
+      <zipfileset src="${p.lib}/jxl.jar" includes="**/*.java **/*.class"/>
+      <zipfileset src="${p.lib}/opencsv-2.2.jar" includes="**/*.java **/*.class"/>
+      <manifest>
+	<attribute name="Main-Class" value="${p.main-class}"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="doc">
+    <javadoc packagenames="mozg.*"
+	     sourcepath="${p.src}"
+	     defaultexcludes="yes"
+	     destdir="${p.doc}"
+	     author="true"
+	     version="true"
+	     use="true"
+	     windowtitle="API">
+      <tag name="todo" scope="all" description="To do:"/>
+    </javadoc>
+  </target>
+
+  <target name="release" depends="release_win32,release_linux"/>
+
+  <target name="clean-build" depends="clean,jar"/>
+
+  <target name="main" depends="clean,run"/>
+
+</project>
