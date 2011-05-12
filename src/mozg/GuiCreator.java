@@ -129,7 +129,7 @@ public class GuiCreator extends AllContent {
 	statusLine = new Label(sh, SWT.BORDER);
     }    
     
-    // Implementation of mozg.gui.creators.AllContent
+    // Implementation of mozg.gui.AllContent
 
     /**
      * Creates the two areas. One for the hover box and one for the
@@ -154,5 +154,4 @@ public class GuiCreator extends AllContent {
     public GuiCreator(Shell sh) {
 	super(sh);	
     }
-
 }

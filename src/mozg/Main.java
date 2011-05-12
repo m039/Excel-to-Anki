@@ -25,8 +25,6 @@ import org.eclipse.swt.widgets.Shell;
  *
  * - Посмотреть другой вариант statusLine
  *
- * - Нужно всё таки как-то это всё прокомментировать
- *
  * - Добавить help
  */
 
@@ -51,7 +49,7 @@ public class Main {
 	AllContent content = new GuiCreator(sh);
 	content.createAll();
 
-	sh.setText("Simple words from excel convertor");
+	sh.setText("Convert your files very easy");
 	sh.setSize(500, 200);
 	sh.open();
 

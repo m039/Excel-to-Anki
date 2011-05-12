@@ -4,12 +4,13 @@ Excel-To-Anki converter is a simple application to convert files in
 program.
 
 * Download
-  Use this link to download executable jar file:
-  - [[https://github.com/downloads/m039/Excel-to-Anki/ExcelToAnkiConverter_linux.jar][Excel-To-Anki_linux.jar]]
-  - [[https://github.com/downloads/m039/Excel-to-Anki/ExcelToAnkiConverter_win32.jar][Excel-To-Anki_win32.jar]]
+  Use this links to download, extract, and then run executable jar
+  file:
+  - [[https://github.com/downloads/m039/Excel-to-Anki/ExcelToAnkiConverter_linux.zip][Excel-To-Anki_linux.zip]]
+  - [[https://github.com/downloads/m039/Excel-to-Anki/ExcelToAnkiConverter_win32.zip][Excel-To-Anki_win32.zip]]
 
   Use this template file:
-  - [[https://github.com/downloads/m039/Excel-to-Anki/example.xls][example.xls]]
+  - [[https://github.com/downloads/m039/Excel-to-Anki/example.xls][example.xls]]e
     
 * Excel file format
   The .xsl file have to be properly constructed.

@@ -100,7 +100,6 @@ abstract public class AllContent {
      */
     abstract protected void main(Composite c);
 
-    
     /**
      * Used to create bottom line.
      *
