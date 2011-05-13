@@ -27,7 +27,7 @@ program.
 
 * Other  
 This is my first Java application and it's just on the alpha
-stage. It's almost prototype.
+stage. It's almost a prototype.
 
 * License
   Excel-To-Anki converter is licensed under the terms of the Apache 2.0

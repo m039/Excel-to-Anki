@@ -1,0 +1,8 @@
+* Functionality
+  - Look for a plugging system.
+    * I want to rewrite all converters using the approporiate plugging
+      system.
+
+* Other
+  - Look for another statusLine style
+  - Replace empty "help" menu with a content one

@@ -46,7 +46,7 @@ public class GuiCreator extends AllContent {
     /**
      * Holds instance of the class that does all work.
      */
-    private Converter converter = new Converter(FileFormat.NONE);
+    private Converter converter = new Converter(FileFormat.ANKI);
 
     /**
      * Use to show the user a status message.
@@ -120,8 +120,7 @@ public class GuiCreator extends AllContent {
 	
 	FormatButtonCreator fbc	= new FormatButtonCreator(composite);
 
-	fbc.button("None",	 FileFormat.NONE).setSelection(true);
-	fbc.button("Anki",	 FileFormat.ANKI);
+	fbc.button("Anki",	 FileFormat.ANKI).setSelection(true);;
 	fbc.button("LiveMocha",	 FileFormat.LIVEMOCHA).setEnabled(false);
     }
 

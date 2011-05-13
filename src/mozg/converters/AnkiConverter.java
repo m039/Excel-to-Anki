@@ -44,7 +44,7 @@ import jxl.read.biff.BiffException;
  * @author m039
  * @version 1.0
  */
-public class AnkiConverter implements Convert {
+public class AnkiConverter implements Convert, Status {
     private String status = "";
     
     /**
